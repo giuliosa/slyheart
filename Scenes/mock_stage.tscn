@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://csfp1uljsq1ya"]
+
+[ext_resource type="Texture2D" uid="uid://b5rl7dh75eusk" path="res://assets/temp/shurong-cui-zone-1-concept.jpg" id="1_3pnyi"]
+[ext_resource type="PackedScene" uid="uid://cej5x6s0iflfu" path="res://Scenes/Actors/Player/plataform_player.tscn" id="2_hclgl"]
+
+[node name="Mock Stage" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 2841.0
+offset_bottom = 1080.0
+texture = ExtResource("1_3pnyi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(895, 248, 733, 354, 590, 567, 590, 746, 600, 745, 609, 767, 633, 789, 668, 794, 747, 818, 830, 815, 1004, 807, 1197, 783, 1233, 772, 1233, 768, 1253, 762, 1275, 746, 1316, 743, 1337, 704, 1353, 698, 1361, 684, 1357, 592, 1399, 580, 1412, 565, 1432, 558, 1466, 563, 1526, 546, 1750, 554, 1863, 569, 1927, 553, 1969, 535, 2114, 504, 2026, 546, 1987, 560, 1955, 583, 1903, 607, 1865, 611, 1885, 625, 1933, 642, 2001, 622, 2024, 599, 2117, 625, 2032, 622, 1939, 686, 1937, 713, 2190, 711, 2424, 713, 2635, 636, 2650, 356, 2255, 165, 2787, 199, 2729, 998, 156, 1002, 423, 248, 899, 167)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_hclgl")]
+position = Vector2(823, 688)
