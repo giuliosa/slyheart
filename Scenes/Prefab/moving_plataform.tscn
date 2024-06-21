@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://n8jpvgpvllxc"]
+
+[ext_resource type="Script" path="res://Scenes/Prefab/moving_plataform.gd" id="1_jnb1r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wq581"]
+size = Vector2(129, 26)
+
+[node name="MovingPlataform" type="Node2D"]
+script = ExtResource("1_jnb1r")
+distance = 202
+
+[node name="plataform" type="AnimatableBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="ColorRect" type="ColorRect" parent="plataform"]
+offset_right = 129.0
+offset_bottom = 26.0
+color = Color(0.513726, 0.513726, 0.513726, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataform"]
+position = Vector2(64.5, 13)
+shape = SubResource("RectangleShape2D_wq581")
+one_way_collision = true

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1cyeehudlld2"]
+
+[ext_resource type="Script" path="res://Scenes/Prefab/collectable_coin.gd" id="1_w4mj4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3scqc"]
+size = Vector2(22.5, 33)
+
+[node name="CollectableCoin" type="Area2D"]
+collision_layer = 8
+script = ExtResource("1_w4mj4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 19.0
+offset_bottom = 29.0
+color = Color(0.611765, 0.611765, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(9.75, 14.5)
+shape = SubResource("RectangleShape2D_3scqc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

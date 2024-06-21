@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqpxva7h4ojvh"]
+[gd_scene load_steps=4 format=3 uid="uid://dqpxva7h4ojvh"]
 
 [ext_resource type="PackedScene" uid="uid://cej5x6s0iflfu" path="res://Scenes/Actors/Player/plataform_player.tscn" id="1_fib7y"]
+[ext_resource type="PackedScene" uid="uid://b8i5s0ojmy3fa" path="res://Scenes/Prefab/ball.tscn" id="2_ly33r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4rmu"]
 size = Vector2(2042, 30)
@@ -50,4 +51,10 @@ metadata/_edit_use_anchors_ = true
 collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
-polygon = PackedVector2Array(1922, 1024, 2966, 1029, 3028, 1020, 3311, 960, 3617, 934, 3917, 901, 4100, 911, 4729, 660, 4748, 1046, 1924, 1062)
+polygon = PackedVector2Array(1922, 1024, 2966, 1029, 3028, 1020, 3311, 960, 3617, 934, 3917, 901, 4100, 911, 5422, -352, 6672, 660, 7781, 660, 10078, -714, 10146, -2904, 11639, 1480, 4704, 2108, 4748, 1046, 1924, 1062)
+
+[node name="ball-fun" parent="." instance=ExtResource("2_ly33r")]
+position = Vector2(4862, -432)
+
+[node name="ball-fun2" parent="." instance=ExtResource("2_ly33r")]
+position = Vector2(3086, 779)

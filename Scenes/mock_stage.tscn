@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://csfp1uljsq1ya"]
+[gd_scene load_steps=4 format=3 uid="uid://csfp1uljsq1ya"]
 
 [ext_resource type="Texture2D" uid="uid://b5rl7dh75eusk" path="res://assets/temp/shurong-cui-zone-1-concept.jpg" id="1_3pnyi"]
 [ext_resource type="PackedScene" uid="uid://cej5x6s0iflfu" path="res://Scenes/Actors/Player/plataform_player.tscn" id="2_hclgl"]
+[ext_resource type="PackedScene" uid="uid://b8i5s0ojmy3fa" path="res://Scenes/Prefab/ball.tscn" id="3_s8ubk"]
 
 [node name="Mock Stage" type="Node2D"]
 
@@ -18,3 +19,12 @@ polygon = PackedVector2Array(895, 248, 733, 354, 590, 567, 590, 746, 600, 745, 6
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_hclgl")]
 position = Vector2(823, 688)
+
+[node name="ball-fun" parent="." instance=ExtResource("3_s8ubk")]
+position = Vector2(1072, 264)
+
+[node name="ball-fun2" parent="." instance=ExtResource("3_s8ubk")]
+position = Vector2(1170, 389)
+
+[node name="ball-fun3" parent="." instance=ExtResource("3_s8ubk")]
+position = Vector2(974, 434)
