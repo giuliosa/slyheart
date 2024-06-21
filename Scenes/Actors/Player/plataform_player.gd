@@ -35,7 +35,7 @@ func _physics_process(delta):
 		velocity.x = 0
 
 	if is_on_wall():
-		velocity.y = 200
+		#velocity.y = 200
 		wall_normal = get_wall_normal()
 
 	# Handle jump.
@@ -47,15 +47,15 @@ func _physics_process(delta):
 		jump_count += 1
 			
 			
-		#if is_on_wall():
-			#print("pulou da parede")
-			#is_jumping = true
-			#if wall_normal == Vector2.LEFT:
-				#velocity = Vector2(wall_normal.x * jump_velocity * -1, jump_velocity)
-			#if wall_normal == Vector2.RIGHT:
-				#velocity = Vector2(wall_normal.x * jump_velocity * -1, jump_velocity)
-			#
-			#print(velocity)
+		if is_on_wall():
+			jump_count = 1
+			print("pulou da parede")
+			if wall_normal == Vector2.LEFT:
+				velocity = Vector2(wall_normal.x * jump_velocity, -jump_velocity)
+			if wall_normal == Vector2.RIGHT:
+				velocity = Vector2(wall_normal.x * jump_velocity, -jump_velocity)
+			
+			print(velocity)
 			
 			
 	elif is_on_floor():
@@ -65,7 +65,7 @@ func _physics_process(delta):
 	if velocity.y > 0 or not Input.is_action_pressed("action"):
 		velocity.y += fall_gravity * delta
 	else:
-		velocity.y += gravity * delta		
+		velocity.y += gravity * delta
 		
 
 	# Get the input direction and handle the movement/deceleration.
