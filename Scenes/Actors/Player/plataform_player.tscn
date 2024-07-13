@@ -46,4 +46,16 @@ debug_color = Color(0.815686, 0.298039, 0.14902, 0.419608)
 
 [node name="Remote" type="RemoteTransform2D" parent="."]
 
+[node name="Life" type="Label" parent="."]
+offset_left = -5.0
+offset_top = -98.0
+offset_right = 14.0
+offset_bottom = -75.0
+text = "00"
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
