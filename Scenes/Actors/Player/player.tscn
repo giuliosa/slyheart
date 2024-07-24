@@ -1,14 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://cq36hubtnhqpy"]
+[gd_scene load_steps=5 format=3 uid="uid://cq36hubtnhqpy"]
 
 [ext_resource type="Script" path="res://Scenes/Actors/Player/player.gd" id="1_epk1r"]
 [ext_resource type="Texture2D" uid="uid://ignjo8nrxl66" path="res://Scenes/Actors/Player/sly.png" id="1_oq6si"]
+[ext_resource type="Resource" uid="uid://5p36ybp3fqd5" path="res://Scenes/Actors/Player/DefaultMovementData.tres" id="2_v7y42"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c61jk"]
 size = Vector2(20, 31)
 
 [node name="Player" type="CharacterBody2D"]
-floor_snap_length = 5.0
+floor_snap_length = 7.0
 script = ExtResource("1_epk1r")
+movement_data = ExtResource("2_v7y42")
 
 [node name="Body" type="Sprite2D" parent="."]
 position = Vector2(4, -36)
