@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cq36hubtnhqpy"]
+[gd_scene load_steps=6 format=3 uid="uid://cq36hubtnhqpy"]
 
 [ext_resource type="Script" path="res://Scenes/Actors/Player/player.gd" id="1_epk1r"]
 [ext_resource type="Texture2D" uid="uid://ignjo8nrxl66" path="res://Scenes/Actors/Player/sly.png" id="1_oq6si"]
@@ -7,7 +7,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c61jk"]
 size = Vector2(20, 31)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kljb0"]
+size = Vector2(16, 66)
+
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 74
 floor_snap_length = 7.0
 script = ExtResource("1_epk1r")
 movement_data = ExtResource("2_v7y42")
@@ -23,3 +27,14 @@ shape = SubResource("RectangleShape2D_c61jk")
 [node name="CoyoteJumpTimer" type="Timer" parent="."]
 wait_time = 0.15
 one_shot = true
+
+[node name="HazardDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardDetector"]
+position = Vector2(0, -28)
+shape = SubResource("RectangleShape2D_kljb0")
+debug_color = Color(0.820401, 0.335223, 0.580612, 0.42)
+
+[connection signal="area_entered" from="HazardDetector" to="." method="_on_hazard_detector_area_entered"]

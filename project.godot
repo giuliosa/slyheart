@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 GlobalDebug="*res://Scenes/Global/global_debug.gd"
+Events="*res://Scripts/Events.gd"
 
 [display]
 
@@ -99,6 +100,7 @@ action={
 2d_physics/layer_4="items"
 2d_physics/layer_5="hitbox"
 2d_physics/layer_6="hurtbox"
+2d_physics/layer_7="Hazard"
 
 [rendering]
 

@@ -1,12 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://buv4l5sk5a63c"]
+[gd_scene load_steps=6 format=3 uid="uid://buv4l5sk5a63c"]
 
 [ext_resource type="Script" path="res://Scenes/world.gd" id="1_wykpr"]
 [ext_resource type="PackedScene" uid="uid://cq36hubtnhqpy" path="res://Scenes/Actors/Player/player.tscn" id="2_w3nf5"]
+[ext_resource type="PackedScene" uid="uid://fqr0rtqoryu5" path="res://Scenes/Prefab/spikes.tscn" id="3_g727g"]
+[ext_resource type="PackedScene" uid="uid://d1cyeehudlld2" path="res://Scenes/Prefab/collectable_coin.tscn" id="4_ulxy4"]
+[ext_resource type="PackedScene" uid="uid://c3lfjcfnni1kw" path="res://Scenes/level_completed.tscn" id="5_ih3vd"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_wykpr")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(0, 0, 64, 0, 64, 832, 256, 832, 384, 896, 576, 896, 704, 768, 832, 768, 832, 1024, 960, 1024, 960, 896, 1344, 896, 1600, 768, 1728, 768, 1728, 896, 1856, 896, 1856, 64, 1536, 64, 1536, 640, 1472, 640, 1472, 0, 1920, 0, 1920, 1088, 0, 1088)
@@ -14,5 +19,33 @@ polygon = PackedVector2Array(0, 0, 64, 0, 64, 832, 256, 832, 384, 896, 576, 896,
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
 color = Color(0, 0, 0, 1)
 
+[node name="Spikes" parent="." instance=ExtResource("3_g727g")]
+position = Vector2(896, 992)
+scale = Vector2(2, 1)
+
+[node name="Spikes2" parent="." instance=ExtResource("3_g727g")]
+position = Vector2(1792, 864)
+scale = Vector2(2, 1)
+
 [node name="Player" parent="." instance=ExtResource("2_w3nf5")]
 position = Vector2(187, 740)
+
+[node name="CollectableCoin" parent="." instance=ExtResource("4_ulxy4")]
+position = Vector2(728, 720)
+
+[node name="CollectableCoin4" parent="." instance=ExtResource("4_ulxy4")]
+position = Vector2(984, 848)
+
+[node name="CollectableCoin5" parent="." instance=ExtResource("4_ulxy4")]
+position = Vector2(1816, 656)
+
+[node name="CollectableCoin3" parent="." instance=ExtResource("4_ulxy4")]
+position = Vector2(536, 848)
+
+[node name="CollectableCoin2" parent="." instance=ExtResource("4_ulxy4")]
+position = Vector2(400, 848)
+
+[node name="Node" type="CanvasLayer" parent="."]
+
+[node name="LevelCompleted" parent="Node" instance=ExtResource("5_ih3vd")]
+visible = false

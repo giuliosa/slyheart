@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3scqc"]
 size = Vector2(22.5, 33)
 
-[node name="CollectableCoin" type="Area2D"]
+[node name="CollectableCoin" type="Area2D" groups=["Coins"]]
 collision_layer = 8
 script = ExtResource("1_w4mj4")
 
