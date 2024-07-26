@@ -8,6 +8,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var body = $Body
 @onready var coyote_jump_timer = $CoyoteJumpTimer
 @onready var starting_position = global_position
+@onready var remote = $Remote
 
 func _physics_process(delta):
 	apply_gravity(delta)
@@ -69,7 +70,9 @@ func apply_air_resistance(input_axis, delta):
 	if input_axis == 0 and not is_on_floor():
 		velocity.x = move_toward(velocity.x, 0, movement_data.air_resistence * delta)
 
-
+func follow_camera(camera): 
+	var camera_path = camera.get_path()
+	remote.remote_path = camera_path
 	
 
 
