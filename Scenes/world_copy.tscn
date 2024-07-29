@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdyr03rpleorn"]
+
+[ext_resource type="Script" path="res://Scenes/world.gd" id="1_46ksh"]
+[ext_resource type="PackedScene" uid="uid://cq36hubtnhqpy" path="res://Scenes/Actors/Player/player.tscn" id="2_ku1g4"]
+[ext_resource type="PackedScene" uid="uid://c3lfjcfnni1kw" path="res://Scenes/level_completed.tscn" id="3_kyu6b"]
+[ext_resource type="PackedScene" uid="uid://fqr0rtqoryu5" path="res://Scenes/Prefab/spikes.tscn" id="4_o54ij"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_46ksh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(56, 384, 320, 384, 408, 472, 648, 600, 3904, 1024, 3904, 1088, 384, 1088, -2624, 1088, -2624, 768, -400, 632, -24, 472)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
+color = Color(0, 0, 0, 1)
+
+[node name="Player" parent="." instance=ExtResource("2_ku1g4")]
+position = Vector2(184, 360)
+
+[node name="Node" type="CanvasLayer" parent="."]
+
+[node name="LevelCompleted" parent="Node" instance=ExtResource("3_kyu6b")]
+visible = false
+
+[node name="Spikes" parent="." instance=ExtResource("4_o54ij")]
+position = Vector2(-3328, 1056)
+scale = Vector2(22, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = -3200
+limit_bottom = 1088
