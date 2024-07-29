@@ -9,3 +9,5 @@ func fade_from_black():
 func fade_to_black():
 	animation_player.play("fade_to_black")
 	await animation_player.animation_finished
+
+#TODO: Make this again. For some reason, animation_player is getting a error everytime

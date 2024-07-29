@@ -13,8 +13,8 @@ func _ready():
 
 func show_level_completed():
 	level_completed.show()
-	if not next_level is PackedScene: return
 	get_tree().paused = true
+	if not next_level is PackedScene: return
 	await LevelTransition.fade_to_black()
 	get_tree().paused = false
 	get_tree().change_scene_to_packed(next_level)

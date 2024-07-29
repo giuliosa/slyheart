@@ -13,6 +13,7 @@ size = Vector2(16, 66)
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 74
 floor_snap_length = 7.0
+safe_margin = 0.1
 script = ExtResource("1_epk1r")
 movement_data = ExtResource("2_v7y42")
 
