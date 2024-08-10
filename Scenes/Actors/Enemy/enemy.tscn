@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://bntm2p00fbiv6"]
 
-[ext_resource type="Texture2D" uid="uid://cpsa3tmdtfk8i" path="res://assets/temp/mock-tile.png" id="1_rjuqn"]
 [ext_resource type="Script" path="res://Scenes/Actors/Enemy/enemy.gd" id="1_s5lhr"]
+[ext_resource type="Texture2D" uid="uid://bgvhxt22y3v7v" path="res://Scenes/Actors/Enemy/enemy1.png" id="2_rrgoi"]
 [ext_resource type="PackedScene" uid="uid://devo42stl324q" path="res://Scenes/Prefab/hitbox.tscn" id="3_jvah0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x8iq4"]
-size = Vector2(64, 54)
+size = Vector2(41, 56)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3uvre"]
-size = Vector2(64, 8)
+size = Vector2(41, 20)
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 4
@@ -16,12 +16,11 @@ collision_mask = 2
 script = ExtResource("1_s5lhr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_rjuqn")
-hframes = 6
-frame = 4
+position = Vector2(2, -11)
+texture = ExtResource("2_rrgoi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
+position = Vector2(0.5, 6)
 shape = SubResource("RectangleShape2D_x8iq4")
 
 [node name="WallDetector" type="RayCast2D" parent="."]
@@ -31,6 +30,6 @@ collision_mask = 6
 [node name="Hitbox" parent="." instance=ExtResource("3_jvah0")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(0, -27)
+position = Vector2(0.5, -33)
 shape = SubResource("RectangleShape2D_3uvre")
 debug_color = Color(0.956863, 0, 0.317647, 0.419608)

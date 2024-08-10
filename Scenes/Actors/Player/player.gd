@@ -54,7 +54,8 @@ func handle_acceleration(input_axis, delta):
 	if input_axis:
 		velocity.x = move_toward(velocity.x, input_axis * movement_data.speed, movement_data.acceleration * delta)
 		#Change this when the character have the properly sprite
-		body.flip_h = input_axis > 0
+		body.flip_h = input_axis < 0
+		# TODO: Fix the direction of partner, and the partner at all
 
 func handle_air_acceleration(input_axis, delta):
 	if is_on_floor(): return

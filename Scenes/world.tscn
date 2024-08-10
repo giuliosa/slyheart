@@ -13,6 +13,34 @@ script = ExtResource("1_wykpr")
 [node name="LevelCompleted" parent="Node" instance=ExtResource("5_ih3vd")]
 visible = false
 
+[node name="ProgressBar" type="ProgressBar" parent="Node"]
+offset_left = -896.0
+offset_top = -608.0
+offset_right = -636.0
+offset_bottom = -581.0
+value = 100.0
+
+[node name="Label" type="Label" parent="Node"]
+offset_left = -896.0
+offset_top = -640.0
+offset_right = -856.0
+offset_bottom = -617.0
+text = "Life
+"
+
+[node name="ProgressBar2" type="ProgressBar" parent="Node"]
+offset_left = -896.0
+offset_top = 256.0
+offset_right = -704.0
+offset_bottom = 283.0
+
+[node name="Label2" type="Label" parent="Node"]
+offset_left = -896.0
+offset_top = 296.0
+offset_right = -856.0
+offset_bottom = 319.0
+text = "Special"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -150)
 limit_left = -3200
