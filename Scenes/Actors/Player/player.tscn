@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cq36hubtnhqpy"]
+[gd_scene load_steps=6 format=3 uid="uid://cq36hubtnhqpy"]
 
 [ext_resource type="Script" path="res://Scenes/Actors/Player/player.gd" id="1_epk1r"]
 [ext_resource type="Resource" uid="uid://5p36ybp3fqd5" path="res://Scenes/Actors/Player/DefaultMovementData.tres" id="2_v7y42"]
 [ext_resource type="Texture2D" uid="uid://8gt8nogpbalr" path="res://Scenes/Actors/Player/body.png" id="3_qnphg"]
-[ext_resource type="PackedScene" uid="uid://qr8hmqih21qv" path="res://Scenes/Actors/Partner/partner.tscn" id="4_pwkwu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c61jk"]
 size = Vector2(22, 33.5)
@@ -18,30 +17,20 @@ safe_margin = 0.1
 script = ExtResource("1_epk1r")
 movement_data = ExtResource("2_v7y42")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(4, -4)
-collision_layer = 128
-collision_mask = 256
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(-8, -12)
-build_mode = 1
-polygon = PackedVector2Array(-30, -19, -21, -24, -10, -23, -3, -18, 1, -10, 1, -3, -3, 7, -15, 11, -25, 9, -32, 4, -35, -8, -30, -19, -36, -8, -33, 5, -25, 10, -14, 12, -2, 8, 2, -3, 2, -10, -2, -19, -10, -24, -21, -25)
-
-[node name="Partner" parent="." instance=ExtResource("4_pwkwu")]
-position = Vector2(-21, -23)
-
 [node name="Body" type="Sprite2D" parent="."]
 position = Vector2(-7, -34)
 texture = ExtResource("3_qnphg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -15.25)
 shape = SubResource("RectangleShape2D_c61jk")
 
 [node name="CoyoteJumpTimer" type="Timer" parent="."]
 wait_time = 0.15
+one_shot = true
+
+[node name="WallJumpTimer" type="Timer" parent="."]
+wait_time = 0.2
 one_shot = true
 
 [node name="HazardDetector" type="Area2D" parent="."]
@@ -55,5 +44,20 @@ shape = SubResource("RectangleShape2D_kljb0")
 debug_color = Color(0.820401, 0.335223, 0.580612, 0.42)
 
 [node name="Remote" type="RemoteTransform2D" parent="."]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-31, -61)
+amount = 2
+local_coords = true
+emission_shape = 4
+emission_points = PackedVector2Array(0, 0, 6, 0, -6, 0, 30, 0, -10, 0, 55, 5)
+emission_colors = PackedColorArray()
+direction = Vector2(1, -1)
+gravity = Vector2(0, -50)
+angle_max = 160.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+color = Color(0.843137, 0.843137, 0.843137, 1)
+anim_speed_max = 8.71
 
 [connection signal="area_entered" from="HazardDetector" to="." method="_on_hazard_detector_area_entered"]
