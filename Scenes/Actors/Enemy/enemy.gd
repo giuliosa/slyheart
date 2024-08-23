@@ -6,10 +6,10 @@ const JUMP_VELOCITY = -400.0
 
 @onready var wall_detector := $WallDetector as RayCast2D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var gravity: float= ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction := 1 
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta 
@@ -22,5 +22,5 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
-func must_die():
+func must_die()-> bool:
 	return true
